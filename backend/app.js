@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import connectToDB from './db/connectDB.js';
 import morgan from 'morgan';
+import userRouter from './routes/user.route.js';
 const app = express();
 
 // express middlewares
@@ -13,9 +14,11 @@ app.use(morgan('dev'))
 app.use(express.json());
 app.use(cookieParser());
 
-
+app.get('/', (req,res)=>{
+    res.send('Welcome');
+})
 // routes
-
+app.use('/api/v1/user', userRouter)
 
 
 connectToDB().then(() => {
