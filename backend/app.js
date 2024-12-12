@@ -3,7 +3,7 @@ dotenv.config()
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
-// import connectToDB from './db/connectDB.js';
+import connectToDB from './db/connectDB.js';
 import morgan from 'morgan';
 const app = express();
 
@@ -18,7 +18,10 @@ app.use(cookieParser());
 
 
 
-// connectToDB()
-app.listen(process.env.PORT || 4500, () =>{
-    console.log(`Server listening on port ${process.env.PORT}`);
+connectToDB().then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log(`server started at ${process.env.PORT}`);
+    })
+}).catch((error) => {
+    console.log("Failed to connect database", error);
 })
