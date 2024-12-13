@@ -1,0 +1,104 @@
+
+MOVIE BOOKING APIS DOCS:
+
+USERS APIS:
+
+REGISTER API:
+POST  ==>  localhost:4000/api/v1/user/signup
+
+{
+    "name" : "sf",
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/user/signup' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data-raw '{
+    "name" : "sf",
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}'
+
+
+
+LOGIN API:
+POST  ==>  localhost:4000/api/v1/user/login
+
+{
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/user/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data-raw '{
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}'
+
+
+
+GET USER PROFILE API:
+GET  ==>  localhost:4000/api/v1/user/profile
+
+CURL:
+curl --location 'localhost:4000/api/v1/user/profile' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4'
+
+
+
+GET ALL USRES API:
+GET  ==>  localhost:4000/api/v1/user/users
+
+CURL:
+curl --location 'localhost:4000/api/v1/user/users' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4'
+
+
+
+LOGOUT USER API:
+GET  ==>  localhost:4000/api/v1/user/logout
+
+CURL:
+curl --location --request GET 'localhost:4000/api/v1/user/logout' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data-raw '{
+    "name" : "sf",
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}'
+
+
+UPDATE USER:
+PUT  ==>  localhost:4000/api/v1/user/update
+
+{
+    "name" : "kp"
+}
+
+CURL:
+curl --location --request PUT 'localhost:4000/api/v1/user/update' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data '{
+    "name" : "kp"
+}'
+
+
+
+DELETE USER API:
+GET  ==>  localhost:4000/api/v1/user/delete
+
+CURL:
+curl --location --request DELETE 'localhost:4000/api/v1/user/delete' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data '{
+    "name" : "kp"
+}'
