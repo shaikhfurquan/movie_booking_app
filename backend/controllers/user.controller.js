@@ -47,7 +47,7 @@ export const loginUser = async (req, res, next) => {
         const token = await user.generateAuthToken()
         user.password = undefined
         res.status(200).json({
-            message: "Login successful",
+            message: `Welcome ${user.name}`,
             token,
             user,
         });
@@ -106,6 +106,9 @@ export const updateUser = async (req, res, next) => {
             updateUser: updateUser
         })
     } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid user ID", error: error.message });
+        }
         return next(error);
         // res.json({error: error.message})
     }
@@ -121,6 +124,9 @@ export const deleteUser = async (req, res, next) => {
             message: "User deleted successfully",
         })
     } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid user ID", error: error.message });
+        }
         return next(error);
         // res.json({error: error.message})
     }
