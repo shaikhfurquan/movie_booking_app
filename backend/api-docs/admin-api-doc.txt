@@ -1,0 +1,90 @@
+
+MOVIE BOOKING APIS DOCS:
+
+ADMIN APIS:
+
+SIGN-UP ADMIN APIS:
+POST  ==>  localhost:4000/api/v1/admin/signup
+
+{
+    "name" : "admin",
+    "email" : "admin@gmail.com",
+    "password" : "123456"
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/admin/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "admin",
+    "email" : "admin@gmail.com",
+    "password" : "123456"
+}'
+
+
+
+LOGIN ADMIN APIS:
+POST  ==>  localhost:4000/api/v1/admin/login
+
+{
+    "email" : "admin@gmail.com",
+    "password" : "123456"
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/admin/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4' \
+--data-raw '{
+    "email" : "admin@gmail.com",
+    "password" : "123456"
+}'
+
+
+
+GET ALL ADMINS API:
+GET  ==>  localhost:4000/api/v1/admin/admins
+
+CURL:
+curl --location 'localhost:4000/api/v1/admin/admins' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTY2ODMsImV4cCI6MTczNDcyMTQ4M30._ERgQj2GG012pF8J65cSKkrn1VH_SJOAVRvVetuD0Sw'
+
+
+
+GET ADMIN BY ID:
+GET  ==>  localhost:4000/api/v1/admin/adminId
+
+CURL:
+curl --location 'localhost:4000/api/v1/admin/675be1fda5f24d234842cb0e' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTY2ODMsImV4cCI6MTczNDcyMTQ4M30._ERgQj2GG012pF8J65cSKkrn1VH_SJOAVRvVetuD0Sw'
+
+
+
+UPDATE ADMIN API:
+PUT  ==>  localhost:4000/api/v1/admin/update
+
+{
+    "name" : "New Admin",
+    "email" : "new@gmail.com"
+}
+
+CURL:
+curl --location --request PUT 'localhost:4000/api/v1/admin/update' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTY2ODMsImV4cCI6MTczNDcyMTQ4M30._ERgQj2GG012pF8J65cSKkrn1VH_SJOAVRvVetuD0Sw' \
+--data-raw '{
+    "name" : "New Admin",
+    "email" : "new@gmail.com"
+}'
+
+
+DELETE ADMIN API:
+DELETE  ==>  localhost:4000/api/v1/admin/delete
+
+CURL:
+curl --location --request DELETE 'localhost:4000/api/v1/admin/delete' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTY2ODMsImV4cCI6MTczNDcyMTQ4M30._ERgQj2GG012pF8J65cSKkrn1VH_SJOAVRvVetuD0Sw' \
+--data '{
+    "name" : "kp"
+}'
