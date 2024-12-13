@@ -1,12 +1,15 @@
 import express from 'express';
-import {getAllUsers, updateUser, deleteUser, loginUser, signupUser } from '../controllers/user.controller.js';
+import { getAllUsers, updateUser, deleteUser, loginUser, signupUser, logoutUser, getUserProfile } from '../controllers/user.controller.js';
+import { isAuthUser } from '../middlewares/isAuth.middleware.js';
 const userRouter = express.Router();
 
 userRouter.post('/signup', signupUser)
 userRouter.post('/login', loginUser)
 userRouter.get('/users', getAllUsers)
-userRouter.put('/update/:userId', updateUser)
-userRouter.delete('/delete/:userId', deleteUser)
+userRouter.get('/profile', isAuthUser, getUserProfile)
+userRouter.put('/update', isAuthUser, updateUser)
+userRouter.delete('/delete', isAuthUser, deleteUser)
+userRouter.get('/logout', isAuthUser, logoutUser)
 
 
 export default userRouter

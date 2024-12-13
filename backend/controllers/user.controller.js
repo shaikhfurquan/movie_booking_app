@@ -44,9 +44,11 @@ export const loginUser = async (req, res, next) => {
             return res.status(401).json({ message: "Invalid email or password" })
         }
 
-        // Generate token or perform other login operations
+        const token = await user.generateAuthToken()
+        user.password = undefined
         res.status(200).json({
             message: "Login successful",
+            token,
             user,
         });
     } catch (error) {
@@ -55,6 +57,20 @@ export const loginUser = async (req, res, next) => {
     }
 };
 
+
+export const getUserProfile = async (req, res, next) => {
+    try {
+        console.log(req.user);
+        res.status(200).json({
+            message: "Profile fetched successfully",
+        profile :req.user
+            
+        });
+    } catch (error) {
+        console.error("Login error:", error);
+        return next(error);
+    }
+};
 
 
 export const getAllUsers = async (req, res, next) => {
@@ -77,7 +93,8 @@ export const getAllUsers = async (req, res, next) => {
 
 export const updateUser = async (req, res, next) => {
     try {
-        const userId = req.params.userId
+        // const userId = req.params.userId
+        const userId = req.user._id
         const { name, email } = req.body
 
         const updateUser = await UserModel.findByIdAndUpdate(userId, { name, email }, { new: true })
@@ -97,7 +114,7 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
     try {
-        const userId = req.params.userId
+        const userId = req.user._id
 
         await UserModel.findByIdAndDelete(userId)
         res.status(200).json({
@@ -108,3 +125,18 @@ export const deleteUser = async (req, res, next) => {
         // res.json({error: error.message})
     }
 }
+
+
+export const logoutUser = async (req, res, next) => {
+    try {
+        res.clearCookie('token');
+        res.status(200).json({
+            message: "User logout successfully",
+        })
+    } catch (error) {
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
+
+
