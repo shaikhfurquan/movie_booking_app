@@ -46,6 +46,7 @@ export const loginUser = async (req, res, next) => {
 
         const token = await user.generateAuthToken()
         user.password = undefined
+        res.cookie("token", token)
         res.status(200).json({
             message: `Welcome ${user.name}`,
             token,
@@ -91,9 +92,28 @@ export const getAllUsers = async (req, res, next) => {
 }
 
 
+export const getUserById = async (req, res, next) => {
+    try {
+        const user = await UserModel.findById(req.params.userId)
+        if (!user) {
+            return res.status(200).json({ message: "User not found" })
+        }
+        res.status(200).json({
+            message: "Users fetched successfully",
+            user
+        })
+    } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid user ID", error: error.message });
+        }
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
+
+
 export const updateUser = async (req, res, next) => {
     try {
-        // const userId = req.params.userId
         const userId = req.user._id
         const { name, email } = req.body
 
