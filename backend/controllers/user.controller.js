@@ -1,7 +1,7 @@
 import UserModel from '../models/user.model.js'
 
 
-export const signupUser = async (req, res, next) => {
+export const signUpUser = async (req, res, next) => {
     try {
         const { name, email, password } = req.body
         if (!name || !email || !password) {
