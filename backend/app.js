@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import userRouter from './routes/user.route.js';
 import adminRouter from './routes/admin.route.js';
 import movieRouter from './routes/movie.route.js';
+import bookingRouter from './routes/booking.route.js';
 const app = express();
 
 // express middlewares
@@ -23,6 +24,7 @@ app.get('/', (req,res)=>{
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1/admin', adminRouter)
 app.use('/api/v1/movie', movieRouter)
+app.use('/api/v1/booking', bookingRouter)
 
 
 connectToDB().then(() => {
