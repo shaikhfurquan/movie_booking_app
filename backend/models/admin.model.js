@@ -22,7 +22,8 @@ const adminSchema = new mongoose.Schema({
         select: false,
     },
     addedMovies: [{
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Movie"
     }]
 }, { timestamps: true })
 
