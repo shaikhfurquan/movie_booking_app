@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllUsers, updateUser, deleteUser, loginUser, signUpUser, logoutUser, getUserProfile, getUserById } from '../controllers/user.controller.js';
+import { getAllUsers, updateUser, deleteUser, loginUser, signUpUser, logoutUser, getUserProfile, getUserById, getBookingsOfUser } from '../controllers/user.controller.js';
 import { isAuthUser } from '../middlewares/isAuth.middleware.js';
 const userRouter = express.Router();
 
@@ -9,6 +9,7 @@ userRouter.get('/users', isAuthUser, getAllUsers)
 userRouter.get('/profile', isAuthUser, getUserProfile)
 userRouter.put('/update', isAuthUser, updateUser)
 userRouter.delete('/delete', isAuthUser, deleteUser)
+userRouter.get('/mybookings', isAuthUser, getBookingsOfUser)
 userRouter.get('/logout', isAuthUser, logoutUser)
 userRouter.get('/:userId', isAuthUser, getUserById)
 
