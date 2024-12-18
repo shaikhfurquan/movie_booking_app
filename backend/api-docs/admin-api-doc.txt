@@ -51,12 +51,24 @@ curl --location 'localhost:4000/api/v1/admin/admins' \
 
 
 
+
 GET ADMIN BY ID:
 GET  ==>  localhost:4000/api/v1/admin/adminId
 
 CURL:
 curl --location 'localhost:4000/api/v1/admin/675be1fda5f24d234842cb0e' \
 --header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTY2ODMsImV4cCI6MTczNDcyMTQ4M30._ERgQj2GG012pF8J65cSKkrn1VH_SJOAVRvVetuD0Sw'
+
+
+
+
+GET ADMIN PROFILE:
+GET  ==>  localhost:4000/api/v1/admin/profile
+
+CURL:
+curl --location 'localhost:4000/api/v1/admin/profile' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVlZDU4Y2RlZjkzYTVmZTg1ZDE0NGEiLCJpYXQiOjE3MzQyNzgyNTEsImV4cCI6MTczNDg4MzA1MX0.mm4lla4SPmUmQv0gsrVwpgU__ZiM7knGingP_OYq2fU'
+
 
 
 
@@ -76,6 +88,21 @@ curl --location --request PUT 'localhost:4000/api/v1/admin/update' \
     "name" : "New Admin",
     "email" : "new@gmail.com"
 }'
+
+
+
+LOGOUT ADMIN API:
+GET  ==>  localhost:4000/api/v1/admin/logout
+
+CURL:
+curl --location --request GET 'localhost:4000/api/v1/admin/logout' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "sf",
+    "email" : "sf@gmail.com",
+    "password" : "123456"
+}'
+
 
 
 DELETE ADMIN API:
