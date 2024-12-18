@@ -20,7 +20,12 @@ const userSchema = new mongoose.Schema({
         required: [true, "Password is required"],
         minLength: [6, "Password must be at least 6 characters"],
         select: false,
-    }
+    },
+    bookings :[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref : "Booking",
+        required : true
+    }]
 }, { timestamps: true })
 
 // userSchema.pre('save' , async function(next) {
