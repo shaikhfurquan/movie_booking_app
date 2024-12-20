@@ -1,0 +1,73 @@
+
+MOVIE BOOKING APIS DOCS:
+
+ADD MOVIE API:
+POST  ==>  localhost:4000/api/v1/movie/add
+
+{
+  "title": "3 iditos - by admin1",
+  "description": "A mind-bending thriller about dream infiltration.",
+  "actors": ["Amer" , "khan"],
+    "releaseDate": "2024-12-26",
+  "posterUrl": "https://example.com/posters/inception.jpg",
+  "featured": true
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/movie/add' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVlZDU4Y2RlZjkzYTVmZTg1ZDE0NGEiLCJpYXQiOjE3MzQyNjg3MjUsImV4cCI6MTczNDg3MzUyNX0.wXyDr79kIfZKMHaZoo9o42LQYqMB-CARy4Lvx-7IkAk' \
+--data '{
+  "title": "3 iditos - by admin1",
+  "description": "A mind-bending thriller about dream infiltration.",
+  "actors": ["Amer" , "khan"],
+    "releaseDate": "2024-12-26",
+  "posterUrl": "https://example.com/posters/inception.jpg",
+  "featured": true
+}
+'
+
+
+
+GET ALL MOVIES
+GET  ==>  localhost:4000/api/v1/movie/movies
+
+CURL:
+curl --location 'localhost:4000/api/v1/movie/movies' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4'
+
+
+
+GET MOVIE BY ID:
+GET  ==>  localhost:4000/api/v1/movie/movies/movieId
+
+CURL:
+curl --location 'localhost:4000/api/v1/movie/movies/675c5277432d3edff4382649' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4'
+
+
+
+UPDATE MOVIE API:
+PUT  ==>  localhost:4000/api/v1/movie/update/movieId
+
+{
+    "title" : "pk updated"
+}
+
+CURL:
+curl --location --request PUT 'localhost:4000/api/v1/movie/update/675c80eeba57969c611f4b2f' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTYxNDEsImV4cCI6MTczNDcyMDk0MX0.a6V2KbNqD2cOh5h9K2nlNsWO_BuW18MBoqrQGPCu9-U' \
+--data '{
+    "title" : "pk updated"
+}'
+
+
+
+DELETE MOVIE API:
+DELETE  ==>  localhost:4000/api/v1/movie/delete/movieId
+
+CURL:
+curl --location --request DELETE 'localhost:4000/api/v1/movie/delete/675c80eeba57969c611f4b2f' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjODBkZGJhNTc5NjljNjExZjRiMmIiLCJpYXQiOjE3MzQxMTYxNDEsImV4cCI6MTczNDcyMDk0MX0.a6V2KbNqD2cOh5h9K2nlNsWO_BuW18MBoqrQGPCu9-U'
+

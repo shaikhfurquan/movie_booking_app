@@ -52,6 +52,7 @@ curl --location 'localhost:4000/api/v1/user/profile' \
 
 
 
+
 GET ALL USRES API:
 GET  ==>  localhost:4000/api/v1/user/users
 
@@ -60,12 +61,15 @@ curl --location 'localhost:4000/api/v1/user/users' \
 --header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTFmZGE1ZjI0ZDIzNDg0MmNiMGUiLCJpYXQiOjE3MzQxMDI2MDUsImV4cCI6MTczNDcwNzQwNX0.847zTRb_uFZ2R2q4qSZ2oEqcoscJJ5oZT7_psKUuXU4'
 
 
+
 GET USER BY ID:
 GET  ==>  localhost:4000/api/v1/user/userId
 
 CURL:
 curl --location 'localhost:4000/api/v1/user/675be162a5f24d234842cb09' \
 --header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZTE2MmE1ZjI0ZDIzNDg0MmNiMDkiLCJpYXQiOjE3MzQxMTg2MTUsImV4cCI6MTczNDcyMzQxNX0.E-dSKeelxUwN3AdJyWAuD2YmB9bjalHNO-8sM9J7FG8'
+
+
 
 LOGOUT USER API:
 GET  ==>  localhost:4000/api/v1/user/logout
@@ -79,6 +83,7 @@ curl --location --request GET 'localhost:4000/api/v1/user/logout' \
     "email" : "sf@gmail.com",
     "password" : "123456"
 }'
+
 
 
 UPDATE USER:
@@ -95,6 +100,16 @@ curl --location --request PUT 'localhost:4000/api/v1/user/update' \
 --data '{
     "name" : "kp"
 }'
+
+
+
+GET BOOKINGS OF USER API:
+GET  ==>  localhost:4000/api/v1/user/mybookings
+
+
+CURL:
+curl --location 'localhost:4000/api/v1/user/mybookings' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVlZDU3MmRlZjkzYTVmZTg1ZDE0NDQiLCJpYXQiOjE3MzQyNzY5NTksImV4cCI6MTczNDg4MTc1OX0.9G64OqBmBPmGOx0Op1MYrcLf_6W2jaX24JB9WHBrJj4'
 
 
 
