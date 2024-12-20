@@ -1,4 +1,5 @@
 import UserModel from '../models/user.model.js'
+import BookingModel from '../models/booking.model.js'
 
 
 export const signUpUser = async (req, res, next) => {
@@ -64,8 +65,8 @@ export const getUserProfile = async (req, res, next) => {
         console.log(req.user);
         res.status(200).json({
             message: "Profile fetched successfully",
-        profile :req.user
-            
+            profile: req.user
+
         });
     } catch (error) {
         console.error("Login error:", error);
@@ -153,6 +154,27 @@ export const deleteUser = async (req, res, next) => {
 }
 
 
+export const getBookingsOfUser = async (req, res, next) => {
+    try {
+        console.log("req.user._id", req.user._id);
+        const bookings = await BookingModel.find({ user: req.user._id })
+        if (!bookings) {
+            return res.status(404).json({ message: "There is no booking" })
+        }
+        res.status(200).json({
+            message: "Bookings of user",
+            bookings
+        })
+    } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid user ID", error: error.message });
+        }
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
+
+
 export const logoutUser = async (req, res, next) => {
     try {
         res.clearCookie('token');
@@ -164,5 +186,3 @@ export const logoutUser = async (req, res, next) => {
         // res.json({error: error.message})
     }
 }
-
-
