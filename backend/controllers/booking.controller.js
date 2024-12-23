@@ -54,4 +54,21 @@ export const newBooking = async (req, res, next) => {
 }
 
 
+export const getAllBookings = async (req, res, next) => {
+    try {
+        const allBookings = await BookingModel.find()
+        if (!allBookings) {
+            return res.status(404).json({ message: "Booking not found" })
+        }
+        res.status(200).json({
+            message: "All Booking fetched successfully",
+            countOfBookings: allBookings.length,
+            allBookings
+
+        })
+    } catch (error) {
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
 
