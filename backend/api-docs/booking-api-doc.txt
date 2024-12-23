@@ -1,0 +1,31 @@
+
+MOVIE BOOKING APIS DOCS:
+
+NEW BOOKING API:
+POST  ==>  localhost:4000/api/v1/booking/newBooking
+
+{
+    "movie" : "675ed75091f4c83f58ec5069",
+    "seatNumber" : "1A",
+    "date" : "2022-08-22"
+}
+
+CURL:
+curl --location 'localhost:4000/api/v1/booking/newBooking' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVlZDU3MmRlZjkzYTVmZTg1ZDE0NDQiLCJpYXQiOjE3MzQyNzI5OTYsImV4cCI6MTczNDg3Nzc5Nn0.0IsazAIagw1uKsurWAAS1LQavFF7prnvAQPbvHH0RyM' \
+--data '{
+    "movie" : "675ed75091f4c83f58ec5069",
+    "seatNumber" : "1A",
+    "date" : "2022-08-22"
+}'
+
+
+
+GET ALL BOOKINGS API
+GET  ==>  localhost:4000/api/v1/booking/bookings
+
+CURL:
+curl --location 'localhost:4000/api/v1/booking/bookings' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVlZDU3MmRlZjkzYTVmZTg1ZDE0NDQiLCJpYXQiOjE3MzQyNzM1OTYsImV4cCI6MTczNDg3ODM5Nn0.BhTOHVMQgNv1DKnxD1qheqj2vkCjm-KzeuxCUZyy5YY'
+
