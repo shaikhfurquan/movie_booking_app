@@ -4,7 +4,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import morgan from 'morgan';
-import {connectToDB} from './db/connectDB.js';
+import { connectToDB } from './db/connectDB.js';
 import userRouter from './routes/user.route.js';
 import adminRouter from './routes/admin.route.js';
 import movieRouter from './routes/movie.route.js';

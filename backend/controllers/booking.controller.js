@@ -72,3 +72,49 @@ export const getAllBookings = async (req, res, next) => {
     }
 }
 
+
+export const getBookingById = async (req, res, next) => {
+    try {
+        const bookingId = req.params.bookingId
+        const booking = await BookingModel.findById(bookingId)
+        if (!booking) {
+            return res.status(404).json({ message: "Booking not found" })
+        }
+        res.status(200).json({
+            message: "Booking fetched successfully",
+            booking
+
+        })
+    } catch (error) {
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
+
+
+export const deleteBooking = async (req, res, next) => {
+    try {
+        const bookingId = req.params.bookingId
+        const booking = await BookingModel.findByIdAndDelete(bookingId).populate("user movie")
+        if (!booking) {
+            return res.status(404).json({ message: "Booking not found" })
+        }
+
+        const session = await mongoose.startSession()
+        session.startTransaction()
+
+        // delete booking of user from the bookings
+        await booking.user.bookings.pull(booking)
+        await booking.movie.bookings.pull(booking)
+        await booking.movie.save({ session })
+        await booking.user.save({ session })
+        session.commitTransaction()
+        res.status(200).json({
+            message: "Booking deleted successfully"
+            // booking
+        })
+    } catch (error) {
+        return next(error);
+        // res.json({error: error.message})
+    }
+}
