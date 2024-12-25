@@ -1,6 +1,38 @@
-# movie_booking_app
-
 # Movie Booking API Documentation
+
+## Available APIs
+- [Users APIs](#users-apis)
+  - [1. Sign-Up User API](#1-sign-up-user-api)
+  - [2. Login API](#2-login-api)
+  - [3. Get User Profile API](#3-get-user-profile-api)
+  - [4. Get All Users API](#4-get-all-users-api)
+  - [5. Get User by ID](#5-get-user-by-id)
+  - [6. Logout User API](#6-logout-user-api)
+  - [7. Update User API](#7-update-user-api)
+  - [8. Get Bookings of User API](#8-get-bookings-of-user-api)
+  - [9. Delete User API](#9-delete-user-api)
+- [Admin APIs](#admin-apis)
+  - [1. Sign-Up Admin API](#1-sign-up-admin-api)
+  - [2. Login Admin API](#2-login-admin-api)
+  - [3. Get All Admins API](#3-get-all-admins-api)
+  - [4. Get Admin by ID](#4-get-admin-by-id)
+  - [5. Get Admin Profile API](#5-get-admin-profile-api)
+  - [6. Update Admin API](#6-update-admin-api)
+  - [7. Logout Admin API](#7-logout-admin-api)
+  - [8. Delete Admin API](#8-delete-admin-api)
+- [Movie APIs](#movie-apis)
+  - [1. Add Movie API](#1-add-movie-api)
+  - [2. Get All Movies API](#2-get-all-movies-api)
+  - [3. Get Movie by ID API](#3-get-movie-by-id-api)
+  - [4. Update Movie API](#4-update-movie-api)
+  - [5. Delete Movie API](#5-delete-movie-api)
+- [Booking APIs](#booking-apis)
+  - [1. New Booking API](#1-new-booking-api)
+  - [2. Get All Bookings API](#2-get-all-bookings-api)
+  - [3. Get Booking by ID API](#3-get-booking-by-id-api)
+  - [4. Delete Booking by ID API](#4-delete-booking-by-id-api)
+
+---
 
 ## Users APIs
 
@@ -66,7 +98,8 @@ This document provides details about the User APIs for the Movie Booking applica
 - **Endpoint:** `GET /api/v1/user/{userId}`
 - **CURL Example:**
     ```bash
-    curl --location 'localhost:4000/api/v1/user/675be162a5f24d234842cb09' \
+    curl --location 'localhost:4000/api/v1/user/675be162a ```markdown
+5f24d234842cb09' \
     --header 'Cookie: token=YOUR_TOKEN_HERE'
     ```
 
@@ -75,56 +108,8 @@ This document provides details about the User APIs for the Movie Booking applica
 - **CURL Example:**
     ```bash
     curl --location --request GET 'localhost:4000/api/v1/user/logout' \
-    --header 'Content-Type: application/json' \
     --header 'Cookie: token=YOUR_TOKEN_HERE'
     ```
-
-### 7. Update User API
-- **Endpoint:** `PUT /api/v1/user/update`
-- **Request Body:**
-    ```json
-    {
-        "name": "kp"
-    }
-    ```
-- **CURL Example:**
-    ```bash
-    curl --location --request PUT 'localhost:4000/api/v1/user/update' \
-    --header 'Content-Type: application/json' \
-    --header 'Cookie: token=YOUR_TOKEN_HERE' \
-    --data '{
-        "name": "kp"
-    }'
-    ```
-
-### 8. Get Bookings of User API
-- **Endpoint:** `GET /api/v1/user/mybookings`
-- **CURL Example:**
-    ```bash
-    curl --location 'localhost:4000/api/v1/user/mybookings' \
-    --header 'Cookie: token=YOUR_TOKEN_HERE'
-    ```
-
-### 9. Delete User API
-- **Endpoint:** `DELETE /api/v1/user/delete`
-- **CURL Example:**
-    ```bash
-    curl --location --request DELETE 'localhost:4000/api/v1/user/delete' \
-    --header 'Content-Type: application/json' \
-    --header 'Cookie: token=YOUR_TOKEN_HERE'
-    ```
-
-## Notes
-- Replace `YOUR_TOKEN_HERE` with the actual token obtained during login.
-- Ensure that the server is running on `localhost:4000` or adjust the URL accordingly if hosted elsewhere.
-
-Feel free to reach out for any questions or further clarifications regarding the API usage!
-
-
-
-
-
-
 
 ## Admin APIs
 
@@ -135,9 +120,9 @@ This section provides details about the Admin APIs for the Movie Booking applica
 - **Request Body:**
     ```json
     {
-        "name": "admin",
-        "email": "admin@gmail.com",
-        "password": "123456"
+        "name": "admin1",
+        "email": "admin1@gmail.com",
+        "password": "admin123"
     }
     ```
 - **CURL Example:**
@@ -145,9 +130,9 @@ This section provides details about the Admin APIs for the Movie Booking applica
     curl --location 'localhost:4000/api/v1/admin/signup' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "name": "admin",
-        "email": "admin@gmail.com",
-        "password": "123456"
+        "name": "admin1",
+        "email": "admin1@gmail.com",
+        "password": "admin123"
     }'
     ```
 
@@ -156,8 +141,8 @@ This section provides details about the Admin APIs for the Movie Booking applica
 - **Request Body:**
     ```json
     {
-        "email": "admin@gmail.com",
-        "password": "123456"
+        "email": "admin1@gmail.com",
+        "password": "admin123"
     }
     ```
 - **CURL Example:**
@@ -165,8 +150,8 @@ This section provides details about the Admin APIs for the Movie Booking applica
     curl --location 'localhost:4000/api/v1/admin/login' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "email": "admin@gmail.com",
-        "password": "123456"
+        "email": "admin1@gmail.com",
+        "password": "admin123"
     }'
     ```
 
@@ -182,7 +167,7 @@ This section provides details about the Admin APIs for the Movie Booking applica
 - **Endpoint:** `GET /api/v1/admin/{adminId}`
 - **CURL Example:**
     ```bash
-    curl --location 'localhost:4000/api/v1/admin/675be1fda5f24d234842cb0e' \
+    curl --location 'localhost:4000/api/v1/admin/675be162a5f24d234842cb09' \
     --header 'Cookie: token=YOUR_TOKEN_HERE'
     ```
 
@@ -195,22 +180,20 @@ This section provides details about the Admin APIs for the Movie Booking applica
     ```
 
 ### 6. Update Admin API
-- **Endpoint:** `PUT /api/v1/admin/update`
+- **Endpoint:** `PUT /api/v1/admin/update/{adminId}`
 - **Request Body:**
     ```json
     {
-        "name": "New Admin",
-        "email": "new@gmail.com"
+        "name": "admin1 updated"
     }
     ```
 - **CURL Example:**
     ```bash
-    curl --location --request PUT 'localhost:4000/api/v1/admin/update' \
+    curl --location --request PUT 'localhost:4000/api/v1/admin/update/675c80eeba57969c611f4b2f' \
     --header 'Content-Type: application/json' \
     --header 'Cookie: token=YOUR_TOKEN_HERE' \
-    --data-raw '{
-        "name": "New Admin",
-        "email": "new@gmail.com"
+    --data '{
+        "name": "admin1 updated"
     }'
     ```
 
@@ -223,18 +206,133 @@ This section provides details about the Admin APIs for the Movie Booking applica
     ```
 
 ### 8. Delete Admin API
-- **Endpoint:** `DELETE /api/v1/admin/delete`
+- **Endpoint:** `DELETE /api/v1/admin/delete/{adminId}`
 - **CURL Example:**
     ```bash
-    curl --location --request DELETE 'localhost:4000/api/v1/admin/delete' \
-    --header 'Content-Type: application/json' \
+    curl --location --request DELETE 'localhost:4000/api/v1/admin/delete/675c80eeba57969c611f4b2f' \
     --header 'Cookie: token=YOUR_TOKEN_HERE'
     ```
 
-## Notes
-- Replace `YOUR_TOKEN_HERE` with the actual token obtained during login.
-- Ensure that the server is running on `localhost:4000` or adjust the URL accordingly if hosted elsewhere.
+## Movie APIs
 
-Feel free to reach out for any questions or further clarifications regarding the API usage!
+This section provides details about the Movie APIs for the Movie Booking application. Below are the available endpoints for movie management.
 
+### 1. Add Movie API
+- **Endpoint:** `POST /api/v1/movie/add`
+- **Request Body:**
+    ```json
+    {
+        "title": "3 iditos - by admin1",
+        "description": "A mind-bending thriller about dream infiltration.",
+        "actors": ["Amer", "khan"],
+        "releaseDate": "2024-12- 26",
+        "posterUrl": "https://example.com/posters/inception.jpg",
+        "featured": true
+    }
+    ```
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/movie/add' \
+    --header 'Content-Type: application/json' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE' \
+    --data '{
+        "title": "3 iditos - by admin1",
+        "description": "A mind-bending thriller about dream infiltration.",
+        "actors": ["Amer", "khan"],
+        "releaseDate": "2024-12-26",
+        "posterUrl": "https://example.com/posters/inception.jpg",
+        "featured": true
+    }'
+    ```
 
+### 2. Get All Movies API
+- **Endpoint:** `GET /api/v1/movie/movies`
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/movie/movies' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
+
+### 3. Get Movie by ID API
+- **Endpoint:** `GET /api/v1/movie/movies/{movieId}`
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/movie/movies/675c5277432d3edff4382649' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
+
+### 4. Update Movie API
+- **Endpoint:** `PUT /api/v1/movie/update/{movieId}`
+- **Request Body:**
+    ```json
+    {
+        "title": "pk updated"
+    }
+    ```
+- **CURL Example:**
+    ```bash
+    curl --location --request PUT 'localhost:4000/api/v1/movie/update/675c80eeba57969c611f4b2f' \
+    --header 'Content-Type: application/json' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE' \
+    --data '{
+        "title": "pk updated"
+    }'
+    ```
+
+### 5. Delete Movie API
+- **Endpoint:** `DELETE /api/v1/movie/delete/{movieId}`
+- **CURL Example:**
+    ```bash
+    curl --location --request DELETE 'localhost:4000/api/v1/movie/delete/675c80eeba57969c611f4b2f' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
+
+## Booking APIs
+
+This section provides details about the Booking APIs for the Movie Booking application. Below are the available endpoints for booking management.
+
+### 1. New Booking API
+- **Endpoint:** `POST /api/v1/booking/newBooking`
+- **Request Body:**
+    ```json
+    {
+        "movie": "675ed75091f4c83f58ec5069",
+        "seatNumber": "1A",
+        "date": "2022-08-22"
+    }
+    ```
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/booking/newBooking' \
+    --header 'Content-Type: application/json' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE' \
+    --data '{
+        "movie": "675ed75091f4c83f58ec5069",
+        "seatNumber": "1A",
+        "date": "2022-08-22"
+    }'
+    ```
+
+### 2. Get All Bookings API
+- **Endpoint:** `GET /api/v1/booking/bookings`
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/booking/bookings' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
+
+### 3. Get Booking by ID API
+- **Endpoint:** `GET /api/v1/booking/{bookingId}`
+- **CURL Example:**
+    ```bash
+    curl --location 'localhost:4000/api/v1/booking/675ee952cde0b8634a976daa' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
+
+### 4. Delete Booking by ID API
+- **Endpoint:** `DELETE /api/v1/booking/{bookingId}`
+- **CURL Example:**
+    ```bash
+    curl --location --request DELETE 'localhost:4000/api/v1/booking/675ef31a0ac94a1f2929ec61' \
+    --header 'Cookie: token=YOUR_TOKEN_HERE'
+    ```
