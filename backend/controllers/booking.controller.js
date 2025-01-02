@@ -86,6 +86,9 @@ export const getBookingById = async (req, res, next) => {
 
         })
     } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid booking ID", error: error.message });
+        }
         return next(error);
         // res.json({error: error.message})
     }
@@ -114,6 +117,9 @@ export const deleteBooking = async (req, res, next) => {
             // booking
         })
     } catch (error) {
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid booking ID", error: error.message });
+        }
         return next(error);
         // res.json({error: error.message})
     }
